@@ -4,8 +4,8 @@
 
 | 函数名称                   | 返回值    | 能否处理时钟回拨 |
 |------------------------|--------|----------|
-| getCurrentTimestamp    | 纳秒级时间戳 | 否        |
-| tryGetCurrentTimestamp | 纳秒级时间戳 | 是        |
+| getCurrentTimestamp    | 毫秒级时间戳 | 否        |
+| tryGetCurrentTimestamp | 毫秒级时间戳 | 是        |
 
 tryGetCurrentTimestamp 几种返回值的含义
 
