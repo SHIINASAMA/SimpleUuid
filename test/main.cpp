@@ -46,7 +46,7 @@ void test_uuid() {
     uint8_t selfId = 0x23;
     uuid::TimestampHandler timestampHandler(std::chrono::system_clock::now());
 
-    auto uuid0 = uuid::Uuid(selfId, timestampHandler.getCurrentTimestamp() / 10000, 0x45);
+    auto uuid0 = uuid::Uuid(selfId, timestampHandler.getCurrentTimestamp(), 0x45);
     auto number = uuid0.toNumber();
 
     auto uuid1 = uuid::Uuid();

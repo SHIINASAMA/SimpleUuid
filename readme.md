@@ -8,6 +8,7 @@
 | tryGetCurrentTimestamp | 纳秒级时间戳 | 是        |
 
 tryGetCurrentTimestamp 几种返回值的含义
+
 - 0 —— 发生时间回拨且回拨时间不超过 **五秒**；
 - UINT64_MAX —— 发生时间回拨且回拨时间超过 **五秒**；
 - 其它 —— 时间戳正常
@@ -24,4 +25,6 @@ tryGetCurrentTimestamp 几种返回值的含义
 |-----------|-----|-------------|
 | selfId    | 8   | 一般用于表示机器 ID |
 | r         | 8   | 保留位，可自定义    |
-| timestamp | 48  | 时间戳，推荐毫秒级   |
+| timestamp | 48  | 毫秒级时间戳      |
+
+timestamp 在毫秒级别下能表示约 8925.513 年
