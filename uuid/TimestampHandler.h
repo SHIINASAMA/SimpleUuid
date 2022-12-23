@@ -9,6 +9,7 @@ namespace uuid {
 /// 时间戳处理器
 class uuid::TimestampHandler {
 public:
+    explicit TimestampHandler(std::chrono::system_clock::time_point point) noexcept;
     /// 获取当前时间戳
     /// \return 纳秒级时间戳
     uint64_t getCurrentTimestamp() noexcept;

@@ -1,5 +1,9 @@
 #include "TimestampHandler.h"
 
+uuid::TimestampHandler::TimestampHandler(std::chrono::system_clock::time_point point) noexcept {
+    latest = point;
+}
+
 uint64_t uuid::TimestampHandler::getCurrentTimestamp() noexcept {
     latest = std::chrono::system_clock::now();
     return latest.time_since_epoch().count();
