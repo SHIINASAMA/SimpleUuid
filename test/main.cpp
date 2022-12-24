@@ -36,10 +36,13 @@ void test_timestamp_handler() {
     uuid::TimestampHandler timestampHandler(std::chrono::system_clock::now());
 
     auto p1 = timestampHandler.getCurrentTimestamp();
-    auto p2 = timestampHandler.tryGetCurrentTimestamp();
-
     std::cout << "p1 -> " << p1 << "\n";
-    std::cout << "p2 -> " << p2 << "\n";
+
+    for (int i = 0; i < 100; ++i) {
+        std::this_thread::sleep_for(std::chrono::milliseconds(2));
+        auto p2 = timestampHandler.tryGetCurrentTimestamp();
+        std::cout << "p2 -> " << p2 << "\n";
+    }
 }
 
 void test_uuid() {

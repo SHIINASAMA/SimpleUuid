@@ -19,5 +19,5 @@ public:
     uint64_t tryGetCurrentTimestamp() noexcept;
 
 protected:
-    std::chrono::system_clock::time_point latest;
+    std::chrono::milliseconds latest;
 };
