@@ -2,10 +2,10 @@
 
 ### uuid::TimestampHandler
 
-| 函数名称                   | 返回值    | 能否处理时钟回拨 |
-|------------------------|--------|----------|
-| getCurrentTimestamp    | 毫秒级时间戳 | 否        |
-| tryGetCurrentTimestamp | 毫秒级时间戳 | 是        |
+| 函数名称                   | 返回值    | 可用于处理时钟回拨 |
+|------------------------|--------|-----------|
+| getCurrentTimestamp    | 毫秒级时间戳 | 否         |
+| tryGetCurrentTimestamp | 毫秒级时间戳 | 是         |
 
 tryGetCurrentTimestamp 几种返回值的含义
 
