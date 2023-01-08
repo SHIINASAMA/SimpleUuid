@@ -1,6 +1,6 @@
 # Simple Uuid
 
-### SimpleUuid::TimestampHandler
+### uuid::TimestampHandler
 
 | 函数名称                   | 返回值    | 可用于处理时钟回拨 |
 |------------------------|--------|-----------|
@@ -13,7 +13,7 @@ tryGetCurrentTimestamp 几种返回值的含义
 - UINT64_MAX —— 发生时间回拨且回拨时间超过 **五秒**；
 - 其它 —— 时间戳正常
 
-### SimpleUuid::Uuid 内存布局
+### uuid::Uuid 内存布局
 
 ```
 ---------------------------------------------
