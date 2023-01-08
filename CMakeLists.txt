@@ -10,7 +10,7 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/target)
 
 option(UUID_BUILD_TEST "build the unit test for uuid lib" OFF)
 
-add_subdirectory(uuid)
+add_subdirectory(SimpleUuid)
 
 if (UUID_BUILD_TEST)
     add_subdirectory(test)

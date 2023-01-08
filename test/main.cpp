@@ -1,7 +1,8 @@
-#include "uuid/TimestampHandler.h"
-#include "uuid/Uuid.h"
+#include "SimpleUuid/TimestampHandler.h"
+#include "SimpleUuid/Uuid.h"
 
 #include <iostream>
+#include <thread>
 
 void test_chrono();
 
