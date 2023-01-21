@@ -44,8 +44,8 @@ install(TARGETS uuid uuid-static
         PUBLIC_HEADER DESTINATION include
         )
 
-# install source
-install(DIRECTORY "${CMAKE_CURRENT_LIST_DIR}" DESTINATION "include")
+# install header files
+install(DIRECTORY "${CMAKE_CURRENT_LIST_DIR}/include/SimpleUuid" DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
 
 # copy config
 install(
@@ -57,4 +57,5 @@ install(
 install(
         EXPORT SimpleUuidTargets
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/SimpleUuid
+        NAMESPACE SimpleUuid::
 )
