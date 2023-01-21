@@ -1,4 +1,9 @@
-#include "Uuid.h"
+#include "SimpleUuid/Uuid.h"
+
+#ifdef WIN32
+#pragma warning(disable : 4146)
+#pragma warning(disable : 4244)
+#endif
 
 uuid::Uuid::Uuid(uint8_t selfId, uint64_t timestamp, uint8_t r) noexcept {
     this->selfId = selfId;

@@ -1,23 +1,11 @@
 #include "SimpleUuid/TimestampHandler.h"
 #include "SimpleUuid/Uuid.h"
+#include "gtest/gtest.h"
 
 #include <iostream>
 #include <thread>
 
-void test_chrono();
-
-void test_timestamp_handler();
-
-void test_uuid();
-
-int main() {
-    test_chrono();
-    test_timestamp_handler();
-    test_uuid();
-    return 0;
-}
-
-void test_chrono() {
+TEST(Test, Chrono) {
     std::time_t tm;
     std::time(&tm);
     std::cout << "std::time_t -> " << tm << "\n";
@@ -33,7 +21,7 @@ void test_chrono() {
 }
 
 /// \note 此处仅简单的调用一下接口。若要复现在时间回拨时的处理，需要另外编写测试程序，并且手动使操作系统时间回拨，其他基于 TimestampHandler 的功能同理
-void test_timestamp_handler() {
+TEST(Test, TimestampHandler) {
     uuid::TimestampHandler timestampHandler(std::chrono::system_clock::now());
 
     auto p1 = timestampHandler.getCurrentTimestamp();
@@ -46,7 +34,7 @@ void test_timestamp_handler() {
     }
 }
 
-void test_uuid() {
+TEST(Test, UUID) {
     uint8_t selfId = 0x23;
     uuid::TimestampHandler timestampHandler(std::chrono::system_clock::now());
 
