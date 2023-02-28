@@ -53,6 +53,12 @@ install(
         DESTINATION lib/cmake/SimpleUuid
 )
 
+# copy debug config
+install(
+        FILES ${PROJECT_BINARY_DIR}/SimpleUuidConfig.cmake
+        DESTINATION debug/lib/cmake/SimpleUuid
+)
+
 # copy export target
 install(
         EXPORT SimpleUuidTargets
