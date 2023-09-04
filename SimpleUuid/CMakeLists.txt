@@ -1,13 +1,8 @@
-add_library(uuid SHARED)
-add_library(uuid-static STATIC)
-
-add_library(SimpleUuid::uuid ALIAS uuid)
-add_library(SimpleUuid::uuid-static ALIAS uuid-static)
+add_library(uuid)
 
 set_target_properties(uuid PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON)
-if (WIN32)
+if (${MSVC})
     target_compile_options(uuid PRIVATE /utf-8)
-    target_compile_options(uuid-static PRIVATE /utf-8)
 endif ()
 
 target_include_directories(
@@ -17,15 +12,14 @@ target_include_directories(
         $<INSTALL_INTERFACE:include>
 )
 
-target_include_directories(
-        uuid-static
-        PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-        $<INSTALL_INTERFACE:include>
-)
-
 target_sources(uuid PRIVATE src/TimestampHandler.cpp src/Uuid.cpp)
-target_sources(uuid-static PRIVATE $<TARGET_OBJECTS:uuid>)
+
+set_target_properties(
+        uuid
+        PROPERTIES
+        OUTPUT_NAME "sese.uuid"
+        PREFIX ""
+)
 
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
@@ -36,7 +30,7 @@ configure_package_config_file(
 )
 
 # export targets
-install(TARGETS uuid uuid-static
+install(TARGETS uuid
         EXPORT SimpleUuidTargets
         RUNTIME DESTINATION bin
         LIBRARY DESTINATION lib
@@ -63,5 +57,5 @@ install(
 install(
         EXPORT SimpleUuidTargets
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/SimpleUuid
-        NAMESPACE SimpleUuid::
+        NAMESPACE Sese::
 )
