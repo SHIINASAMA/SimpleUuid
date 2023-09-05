@@ -1,21 +1,21 @@
-add_library(uuid)
+add_library(Uuid)
 
-set_target_properties(uuid PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON)
+set_target_properties(Uuid PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON)
 if (${MSVC})
-    target_compile_options(uuid PRIVATE /utf-8)
+    target_compile_options(Uuid PRIVATE /utf-8)
 endif ()
 
 target_include_directories(
-        uuid
+        Uuid
         PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>
 )
 
-target_sources(uuid PRIVATE src/TimestampHandler.cpp src/Uuid.cpp)
+target_sources(Uuid PRIVATE src/TimestampHandler.cpp src/Uuid.cpp)
 
 set_target_properties(
-        uuid
+        Uuid
         PROPERTIES
         OUTPUT_NAME "sese.uuid"
         PREFIX ""
@@ -30,7 +30,7 @@ configure_package_config_file(
 )
 
 # export targets
-install(TARGETS uuid
+install(TARGETS Uuid
         EXPORT SimpleUuidTargets
         RUNTIME DESTINATION bin
         LIBRARY DESTINATION lib
